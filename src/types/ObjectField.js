@@ -7,6 +7,8 @@ var React = require('react'),
 	createReactClass = require('create-react-class')
 ;
 
+var e = React.createElement;
+
 /**
  * Component for editing a hash.
  * @param  {FreezerNode} value The value of the object.
@@ -57,8 +59,8 @@ var ObjectField = createReactClass({
 			openHashChildren.push( this.renderAdder() );
 		}
 
-		openHash = React.DOM.div({ key: 'o', className: 'jsonChildren'}, openHashChildren);
-		return React.DOM.span({className: className}, [
+		openHash = e('div', { key: 'o', className: 'jsonChildren'}, openHashChildren);
+		return e('span', {className: className}, [
 			this.renderHeader(),
 			openHash
 		]);
@@ -96,7 +98,7 @@ var ObjectField = createReactClass({
 			fields.push( me.renderField( field, fixedFields ) );
 		});
 
-		return React.DOM.div({ className: 'jsonGroup jsonGroup_' + groupNumber }, fields );
+		return e('div', { className: 'jsonGroup jsonGroup_' + groupNumber }, fields );
 	},
 
 	getDefaultHeader: function(){

@@ -7,6 +7,8 @@ var React = require('react'),
 	createReactClass = require('create-react-class')
 ;
 
+var e = React.createElement;
+
 /**
  * Field component that represent each Array element or Object field.
  * @param  {string} name The key of the attribute in the parent.
@@ -43,22 +45,22 @@ var Field = createReactClass({
 		if( this.state.error ){
 			className += ' jsonError';
 			if( this.state.error !== true )
-				error = React.DOM.span({ key:'e', className: 'jsonErrorMsg' }, this.state.error );
+				error = e('span', { key:'e', className: 'jsonErrorMsg' }, this.state.error );
 		}
 
-		var jsonName = [ React.DOM.label({ key: 's1', htmlFor: id }, (definition.title || this.props.name) + ':' ) ];
+		var jsonName = [ e('label', { key: 's1', htmlFor: id }, (definition.title || this.props.name) + ':' ) ];
 
 		if( this.props.fixed ){
 			// If the field cannot be removed, add a placeholder to maintain the design
-			jsonName.unshift( React.DOM.span({ key:'f', className: 'jsonFixed' }) );
+			jsonName.unshift( e('span', { key:'f', className: 'jsonFixed' }) );
 		}
 		else{
-			jsonName.unshift( React.DOM.a({ key:'a', href: '#', className: 'jsonRemove', onClick: this.handleRemove}, 'x') );
+			jsonName.unshift( e('a', { key:'a', href: '#', className: 'jsonRemove', onClick: this.handleRemove}, 'x') );
 		}
 
-		return React.DOM.div({className: className}, [
-			React.DOM.span( {className: 'jsonName', key: 'n'}, jsonName ),
-			React.DOM.span( {className: 'jsonValue', key: 'v'}, typeField ),
+		return e('div', {className: className}, [
+			e('span', {className: 'jsonName', key: 'n'}, jsonName ),
+			e('span', {className: 'jsonValue', key: 'v'}, typeField ),
 			error
 		]);
 	},
@@ -85,7 +87,7 @@ var Field = createReactClass({
 	},
 
 	renderReactField: function( definition ){
-		return React.DOM.div( { className: 'jsonField reactField' }, definition.output );
+		return e('div', { className: 'jsonField reactField' }, definition.output );
 	},
 
 	handleRemove: function( e ){

@@ -5,6 +5,8 @@ var React = require('react'),
 	assign = require('object-assign')
 ;
 
+var e = React.createElement;
+
 module.exports = {
 	renderHeader: function(){
 		var settingsHeader = this.props.settings.header;
@@ -25,7 +27,11 @@ module.exports = {
 			header = settingsHeader;
 		}
 
-		return React.DOM.span({ key: 's', onClick: this.toggleEditing, className: 'compoundToggle' }, header);
+		return e('span', {
+			key: 's',
+			onClick: this.toggleEditing,
+			className: 'compoundToggle',
+		}, header);
 	},
 
 	toggleEditing: function(){

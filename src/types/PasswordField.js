@@ -3,7 +3,6 @@ var React = require('react'),
 	createReactClass = require('create-react-class')
 ;
 
-
 /**
  * Component for editing a password.
  * @param  {string} value The value of the password.

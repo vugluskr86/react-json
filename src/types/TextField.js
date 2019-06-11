@@ -3,6 +3,8 @@ var React = require('react'),
 	createReactClass = require('create-react-class')
 ;
 
+var e = React.createElement;
+
 /**
  * Component for editing a long string.
  * @param  {string} value The value of the string.
@@ -20,10 +22,11 @@ var TextField = createReactClass({
 	render: function(){
 		var className = 'jsonText';
 
-		if( !this.state.editing )
-			return React.DOM.span( {onClick: this.setEditMode, className: className}, this.props.value );
+		if( !this.state.editing ) {
+			return e('span', {onClick: this.setEditMode, className: className}, this.props.value );
+		}
 
-		return React.DOM.textarea({
+		return e('textarea', {
 			value: this.state.value,
 			id: this.props.id,
 			onChange: this.updateValue,

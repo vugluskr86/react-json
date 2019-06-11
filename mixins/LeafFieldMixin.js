@@ -2,6 +2,8 @@
 
 var React = require('react');
 
+var e = React.createElement;
+
 module.exports = {
 	getStateFromProps: function( props ){
 		return {
@@ -13,10 +15,14 @@ module.exports = {
 	renderInput: function(){
 		var className = this.typeClass;
 
-		if( !this.state.editing )
-			return React.DOM.span( {onClick: this.setEditMode, className: className}, this.getDisplayString() );
+		if( !this.state.editing ) {
+			return e('span', {
+				onClick: this.setEditMode,
+				className: className
+			}, this.getDisplayString());
+		}
 
-		return React.DOM.input({
+		return e('input', {
 			type: this.inputType,
 			value: this.state.value,
 			id: this.props.id,

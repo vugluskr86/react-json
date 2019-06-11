@@ -3,6 +3,8 @@ var React = require('react'),
 	createReactClass = require('create-react-class')
 ;
 
+var e = React.createElement;
+
 /**
  * Component to add fields to an Object or Array.
  * @param  {FreezerNode} root The parent to add the attribute.
@@ -20,31 +22,31 @@ var FieldAdder = createReactClass({
 
 	render: function(){
 		if( !this.state.creating )
-			return React.DOM.a({ className: 'jsonAdd', href: '#', onClick: this.handleCreate }, this.props.text );
+			return e('a', { className: 'jsonAdd', href: '#', onClick: this.handleCreate }, this.props.text );
 
 		var options = this.getTypes().map( function( type ){
-				return React.DOM.option({value: type, key: type}, type[0].toUpperCase() + type.slice(1));
+				return e('option', {value: type, key: type}, type[0].toUpperCase() + type.slice(1));
 			}),
 			fieldName
 		;
 
 		if( typeof this.props.name != 'undefined' )
 			fieldName =  [
-				React.DOM.span({className: 'jsonName'}, this.props.name),
-				React.DOM.span(null, ':')
+				e('span', {className: 'jsonName'}, this.props.name),
+				e('span', null, ':')
 			];
 		else {
 			fieldName = [
-				React.DOM.input({ref: 'keyInput', type: 'text', value: this.state.value, onChange: this.changeKey}),
-				React.DOM.span(null, ':')
+				e('input', {ref: 'keyInput', type: 'text', value: this.state.value, onChange: this.changeKey}),
+				e('span', null, ':')
 			];
 		}
 
-		return React.DOM.div( {className: 'jsonField jsonFieldAdder'}, [
+		return e('div', {className: 'jsonField jsonFieldAdder'}, [
 			fieldName,
-			React.DOM.select({ key: 's', value: this.state.type, onChange: this.changeType, ref: 'typeSelector'}, options),
-			React.DOM.button({ key: 'b', onClick: this.createField }, 'OK' ),
-			React.DOM.a({ key: 'a', href: '#', className: 'cancelField', onClick: this.handleCancel}, 'Cancel')
+			e('select', { key: 's', value: this.state.type, onChange: this.changeType, ref: 'typeSelector'}, options),
+			e('button', { key: 'b', onClick: this.createField }, 'OK' ),
+			e('a', { key: 'a', href: '#', className: 'cancelField', onClick: this.handleCancel}, 'Cancel')
 		]);
 	},
 

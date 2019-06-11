@@ -7,6 +7,8 @@ var React = require('react'),
 	createReactClass = require('create-react-class')
 ;
 
+var e = React.createElement;
+
 /**
  * Component for editing an array.
  * @param  {FreezerNode} value The value of the array.
@@ -64,9 +66,9 @@ var ArrayField = createReactClass({
 			openArrayChildren.push( this.renderAdder( this.props.value.length ) );
 		}
 
-		openArray = React.DOM.div({ key:'o', className: 'jsonChildren' }, openArrayChildren );
+		openArray = e('div', { key:'o', className: 'jsonChildren' }, openArrayChildren );
 
-		return React.DOM.span({className: className}, [
+		return e('span', {className: className}, [
 			this.renderHeader(),
 			openArray
 		]);

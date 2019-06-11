@@ -15,6 +15,8 @@ var React = require('react'),
 	createReactClass = require('create-react-class')
 ;
 
+var e = React.createElement;
+
 // Detect flexbox support
 var flexboxClass = typeof document != 'undefined' || '',
 	css
@@ -24,8 +26,6 @@ if( flexboxClass ){
 	if( ('flexWrap' in css) || ('webkitFlexWrap' in css) || ('msFlexWrap' in css) )
 		flexboxClass = ' jsonFlex';
 }
-
-
 
 /**
  * The main component. It will refresh the props when the store changes.
@@ -113,7 +113,9 @@ var Json = createReactClass({
 			className = 'jsonEditor' + flexboxClass
 		;
 
-		return React.DOM.div({ className: className }, ob);
+		return e('div', {
+			className: className
+		}, ob)
 	},
 
 	getValue: function(){
