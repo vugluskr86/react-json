@@ -1,10 +1,12 @@
-var React = require('react');
+var React = require('react'),
+	createReactClass = require('create-react-class')
+;
 
 /**
  * Component for editing a boolean.
  * @param  {string} value The value of the boolean.
  */
-var SelectType = React.createClass({
+var SelectType = createReactClass({
 
 	defaultValue: '',
 

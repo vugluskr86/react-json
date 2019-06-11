@@ -3,13 +3,14 @@
 var React = require('react'),
 	deepSettings = require('./deepSettings'),
 	objectAssign = require('object-assign'),
-	PropTypes = require('prop-types')
+	PropTypes = require('prop-types'),
+	createReactClass = require('create-react-class')
 ;
 
 var components = {};
 var typeCheckOrder = [];
 
-var TypeField = React.createClass({
+var TypeField = createReactClass({
 	components: {},
 	typeCheckOrder: [],
 
