@@ -11,7 +11,8 @@ var React = require('react'),
 	PasswordField = require('./src/types/PasswordField'),
 	SelectField = require('./src/types/SelectField'),
 	deepSettings = require('./src/deepSettings'),
-	PropTypes = require('prop-types')
+	PropTypes = require('prop-types'),
+	createReactClass = require('create-react-class')
 ;
 
 // Detect flexbox support
@@ -32,7 +33,7 @@ if( flexboxClass ){
  * @prop  {Object|FreezerNode} value The JSON object, value of the form.
  * @prop  {Object} settings Customization settings
  */
-var Json = React.createClass({
+var Json = createReactClass({
 
 	getDefaultProps: function(){
 		return {
