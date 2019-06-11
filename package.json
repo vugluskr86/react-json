@@ -24,7 +24,8 @@
   "homepage": "https://github.com/arqex/react-json",
   "dependencies": {
     "freezer-js": "^0.5.2",
-    "object-assign": "^2.0.0"
+    "object-assign": "^2.0.0",
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "react": "^0.13.1"
@@ -36,6 +37,7 @@
     "gulp-webpack": "^1.4.0",
     "jsdom": "^3.1.2",
     "mocha": "^2.2.4",
+    "node-gyp": "^4.0.0",
     "node-libs-browser": "^0.5.2"
   }
 }

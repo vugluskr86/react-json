@@ -10,7 +10,8 @@ var React = require('react'),
 	TextField = require('./src/types/TextField'),
 	PasswordField = require('./src/types/PasswordField'),
 	SelectField = require('./src/types/SelectField'),
-	deepSettings = require('./src/deepSettings')
+	deepSettings = require('./src/deepSettings'),
+	PropTypes = require('prop-types')
 ;
 
 // Detect flexbox support
@@ -42,7 +43,7 @@ var Json = React.createClass({
 	},
 
 	childContextTypes: {
-		typeDefaults: React.PropTypes.object
+		typeDefaults: PropTypes.object
 	},
 
 	getChildContext: function(){
